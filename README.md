@@ -1,2 +1,2 @@
 # DevBot
-DevBot - Bot for DevHub Server
+DevBot - A Bot for DevHub Server which is now open source for it's community!
