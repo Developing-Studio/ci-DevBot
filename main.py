@@ -14,7 +14,6 @@ DevBot - A Bot for Devhub
 bot = commands.Bot(
     command_prefix=["!", ">", "."],
     owner_ids={747451011484090479, 727365670395838626},
-    # If you remove the above line then I kick bot.
     intents=discord.Intents.all(),
     help_command=PrettyHelp(),
     description=description,
