@@ -55,7 +55,7 @@ class devEvents(commands.Cog):
                     webhook = Webhook.from_url(
                         url, adapter=AsyncWebhookAdapter(session)
                     )
-                    e = discord.Embed(color=0x00FFFF)
+                    e = discord.Embed()
                     e.add_field(
                         name=f"Pins changed by {after.author.name} ({after.author.id}) in {after.channel}",
                         value=f"[Message Link]({after.jump_url}) | {after.channel.mention} |{after.author.mention}",
@@ -72,7 +72,7 @@ class devEvents(commands.Cog):
                     webhook = Webhook.from_url(
                         url, adapter=AsyncWebhookAdapter(session)
                     )
-                    e = discord.Embed(color=0x00FFFF)
+                    e = discord.Embed()
                     e.add_field(
                         name=f"Changes by - {after.author.name} ({after.author.id})",
                         value=f"From -> {before.content}\n to -> {after.content}\n**[Message link]({after.jump_url})**  | {after.channel.mention} | {after.author.mention}",
@@ -88,7 +88,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"{user.name} ({user.id}) got banned",
                     value="\u200b",
@@ -103,7 +103,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name="\u200b", value=f"**[Invite created]({invite})**", inline=False
                 )
@@ -118,7 +118,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(name="\u200b", value=f"Invite deleted", inline=False)
                 e.set_author(name="Log", icon_url="https://i.imgur.com/fXUI76n.png")
                 e.set_footer(text="DevBot Logging")
@@ -131,7 +131,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"{user.name} ({user.id}) got unbanned",
                     value="\u200b",
@@ -146,7 +146,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"Message deleted of - {message.author.name} ({message.author.id})",
                     value=f"Message -> {message.content}\n{message.author.mention} | {message.channel.mention}",
@@ -162,7 +162,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"Message Deleted in Bulk",
                     value=f"{len(messages)} got deleted in {messages[0].channel.mention}",
@@ -178,7 +178,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"Role created -> {role.name} ({role.id})",
                     value=f"{role.mention} | Logging",
@@ -194,7 +194,7 @@ class devEvents(commands.Cog):
         try:
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
-                e = discord.Embed(color=0x00FFFF)
+                e = discord.Embed()
                 e.add_field(
                     name=f"Role deleted -> {role.name} ({role.id})",
                     value=f"{role.mention} | Logging",
