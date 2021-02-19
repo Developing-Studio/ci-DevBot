@@ -1,34 +1,34 @@
-from discord import Webhook, AsyncWebhookAdapter
-import aiohttp
-import socket
-from datetime import datetime
-import aioping
-from discord import Embed
-from discord.ext import commands
-import speedtest
-from discord.ext.commands import BucketType, cooldown
-import pyspeedtest
 import difflib
-import discord
 import logging
-import re
-import unicodedata
 import os
+import re
+import socket
+import unicodedata
+from datetime import datetime
 from typing import Tuple, Union
-import requests
 
-from discord import Colour, Embed, utils
+import aiohttp
+import aioping
+import discord
+import pyspeedtest
+import requests
+import speedtest
+from discord import AsyncWebhookAdapter, Colour, Embed, Webhook, utils
+from discord.ext import commands
 from discord.ext.commands import (
     BadArgument,
+    BucketType,
     Cog,
     Context,
     clean_content,
     command,
+    cooldown,
     has_any_role,
 )
 
 url = os.environ.get("logs")
-colors = ['']
+colors = [""]
+
 
 class devEvents(commands.Cog):
     def __init__(self, bot):
@@ -40,7 +40,11 @@ class devEvents(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
-        if before.author.bot or after.author.bot or after.author.id == 808890188117442611:
+        if (
+            before.author.bot
+            or after.author.bot
+            or after.author.id == 808890188117442611
+        ):
             return
         elif before.guild is None:
             return
@@ -54,7 +58,7 @@ class devEvents(commands.Cog):
                     e = discord.Embed(color=0x00FFFF)
                     e.add_field(
                         name=f"Pins changed by {after.author.name} ({after.author.id}) in {after.channel}",
-                        value=f'[Message Link]({after.jump_url}) | {after.channel.mention} |{after.author.mention}',
+                        value=f"[Message Link]({after.jump_url}) | {after.channel.mention} |{after.author.mention}",
                     )
                     e.set_thumbnail(url=after.author.avatar_url)
                     e.set_author(name="Log", icon_url=after.author.avatar_url)
@@ -153,7 +157,6 @@ class devEvents(commands.Cog):
         except Exception:
             pass
 
-    
     @commands.Cog.listener()
     async def on_bulk_message_delete(self, messages):
         try:
@@ -203,15 +206,17 @@ class devEvents(commands.Cog):
             pass
 
     @commands.Cog.listener()
-    async def on_member_update(self,before,after):
+    async def on_member_update(self, before, after):
         if before.nick != after.nick:
             try:
                 async with aiohttp.ClientSession() as session:
-                    webhook = Webhook.from_url(url, adapter=AsyncWebhookAdapter(session))
+                    webhook = Webhook.from_url(
+                        url, adapter=AsyncWebhookAdapter(session)
+                    )
                     e = discord.Embed()
                     e.add_field(
-                        name=f'Nickname changed of {after.name}',
-                        value = f'Before -> {before.nick}\nNow -> {after.nick}\n{after.id} | {after.mention}'
+                        name=f"Nickname changed of {after.name}",
+                        value=f"Before -> {before.nick}\nNow -> {after.nick}\n{after.id} | {after.mention}",
                     )
                     e.set_author(name="Log", icon_url=after.avatar_url)
                     await webhook.send(embed=e)
@@ -220,6 +225,7 @@ class devEvents(commands.Cog):
 
         else:
             pass
+
 
 def setup(bot):
     bot.add_cog(devEvents(bot))
