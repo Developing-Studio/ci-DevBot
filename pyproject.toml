@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "devbot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+discord = "^1.0.1"
+"discord.py" = "^1.6.0"
+discord-pretty-help = "^1.2.1"
+python-dotenv = "^0.15.0"
+utils = "^1.0.1"
+jishaku = "^1.20.0"
+aioping = "^0.3.1"
+speedtest-cli = "^2.1.2"
+pyspeedtest = "^1.2.7"
+bs4 = "^0.0.1"
+beautifulsoup4 = "^4.9.3"
+markdownify = "^0.6.3"
+sphinx = "^3.5.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
