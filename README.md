@@ -31,3 +31,6 @@ That's it! The plugin will run every time you commit any changes. If there are a
 pre-commit run --all-files --show-diff-on-failure
 ```
 * Note - Use `.env` or `.venv` instead of `env` or `venv` ( virtual environments ). It is to prevent pre-commit from scanning them.
+
+
+Also, great thanks to [python discord bot](https://github.com/python-discord/bot)! DevBot uses some of their's code
